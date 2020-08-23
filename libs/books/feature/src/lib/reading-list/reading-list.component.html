@@ -9,7 +9,16 @@
         {{ b.authors.join(',') }}
       </div>
     </div>
-    <div>
+    <div class="row-flex">
+      <button
+        *ngIf="!b.finished"
+        mat-icon-button
+        color="succ"
+        [attr.aria-label]="'Finished Reading ' + b.title"
+        (click)="finishedReading(b)"
+      >
+        <mat-icon>done</mat-icon>
+      </button>
       <button
         mat-icon-button
         color="warn"
